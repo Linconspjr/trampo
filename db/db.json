@@ -1,0 +1,156 @@
+{
+  "info": [
+    {
+      "laboratorioId": 121,
+      "Descricao": "Legrand",
+      "ativo": true,
+      "OrdemExibicao": 1,
+      "DataAlteracao": "02/11/2024",
+      "id": "85db"
+    },
+    {
+      "laboratorioId": 122,
+      "Descricao": "Legrand GE",
+      "ativo": true,
+      "OrdemExibicao": 2,
+      "DataAlteracao": "07/12/2024",
+      "id": "a963"
+    },
+    {
+      "laboratorioId": 290,
+      "Descricao": "Neoquimica",
+      "ativo": true,
+      "OrdemExibicao": 3,
+      "DataAlteracao": "14/05/2024",
+      "id": "5595"
+    },
+    {
+      "laboratorioId": 291,
+      "Descricao": "Neoquimica GE",
+      "ativo": true,
+      "OrdemExibicao": 4,
+      "DataAlteracao": "05/09/2024",
+      "id": "5d86"
+    },
+    {
+      "laboratorioId": 10,
+      "Descricao": "Geolab",
+      "ativo": true,
+      "OrdemExibicao": 5,
+      "DataAlteracao": "29/01/2024",
+      "id": "7eee"
+    },
+    {
+      "laboratorioId": 497,
+      "Descricao": "Natulab",
+      "ativo": true,
+      "OrdemExibicao": 5,
+      "DataAlteracao": "12/04/2024",
+      "id": "e069"
+    },
+    {
+      "laboratorioId": 11,
+      "Descricao": "Nova Quimica",
+      "ativo": true,
+      "OrdemExibicao": 6,
+      "DataAlteracao": "18/05/2024",
+      "id": "087a"
+    },
+    {
+      "laboratorioId": 99,
+      "Descricao": "Teuto",
+      "ativo": true,
+      "OrdemExibicao": 7,
+      "DataAlteracao": "22/10/2024",
+      "id": "2590"
+    },
+    {
+      "laboratorioId": 172,
+      "Descricao": "Avvio",
+      "ativo": true,
+      "OrdemExibicao": 8,
+      "DataAlteracao": "21/05/2024",
+      "id": "513b"
+    },
+    {
+      "laboratorioId": 23,
+      "Descricao": "Vitamedic",
+      "ativo": true,
+      "OrdemExibicao": 9,
+      "DataAlteracao": "12/06/2024",
+      "id": "fd54"
+    },
+    {
+      "laboratorioId": 21,
+      "Descricao": "Bravir",
+      "ativo": false,
+      "OrdemExibicao": 10,
+      "DataAlteracao": "21/07/2024",
+      "id": "d834"
+    },
+    {
+      "laboratorioId": 89,
+      "Descricao": "Belfar",
+      "ativo": true,
+      "OrdemExibicao": 11,
+      "DataAlteracao": "21/04/2024",
+      "id": "69a1"
+    },
+    {
+      "laboratorioId": 17,
+      "Descricao": "Delta",
+      "ativo": false,
+      "OrdemExibicao": 12,
+      "DataAlteracao": "21/09/2024",
+      "id": "ec38"
+    },
+    {
+      "laboratorioId": 3,
+      "Descricao": "Sanfarma",
+      "ativo": true,
+      "OrdemExibicao": 13,
+      "DataAlteracao": "21/02/2024",
+      "id": "64f9"
+    },
+    {
+      "id": "f19c",
+      "laboratorioId": "1111",
+      "Descricao": "11111",
+      "ativo": false,
+      "OrdemExibicao": "111",
+      "DataAlteracao": "1111-11-11"
+    },
+    {
+      "id": "057b",
+      "laboratorioId": "1111",
+      "Descricao": "11111",
+      "ativo": false,
+      "OrdemExibicao": "111",
+      "DataAlteracao": "1111-11-11"
+    },
+    {
+      "id": "3cbf",
+      "laboratorioId": "1111",
+      "Descricao": "11111",
+      "ativo": false,
+      "OrdemExibicao": "111",
+      "DataAlteracao": "1111-11-11"
+    },
+    {
+      "id": "b60f",
+      "laboratorioId": "1111",
+      "Descricao": "11111",
+      "ativo": false,
+      "OrdemExibicao": "111",
+      "DataAlteracao": "1111-11-11"
+    },
+    {
+      "id": "826b",
+      "laboratorioId": "1111",
+      "Descricao": "11111",
+      "ativo": false,
+      "OrdemExibicao": "111",
+      "DataAlteracao": "1111-11-11"
+    }
+  ]
+}
