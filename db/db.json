@@ -143,14 +143,6 @@
       "ativo": false,
       "OrdemExibicao": "111",
       "DataAlteracao": "1111-11-11"
-    },
-    {
-      "id": "826b",
-      "laboratorioId": "1111",
-      "Descricao": "11111",
-      "ativo": false,
-      "OrdemExibicao": "111",
-      "DataAlteracao": "1111-11-11"
     }
   ]
 }
