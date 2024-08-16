@@ -27,16 +27,11 @@ const confirmar = () => {
           <div class="row">
             <div class="col-md-3">
               <label>Id</label>
-              <input
-              v-model="controle.laboratorioId"
-              type="number"
-              max="10"
-              class="form-control form-control-sm" />
+              <input v-model="controle.laboratorioId" type="number" max="10" class="form-control form-control-sm" />
             </div>
             <div class="col-md-6">
               <label>Descrição</label>
               <input
-             
                 name="consulta"
                 id="txt_consulta"
                 v-model="controle.Descricao"
