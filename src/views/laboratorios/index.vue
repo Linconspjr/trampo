@@ -45,7 +45,7 @@ const excluir = (id) => {
     </div>
     <div class="card-body">
       <div class="row align-items-end">
-        <div class="col-md-3 form-control-sm">
+        <div class="col-md-3">
           <label>Pesquisar</label>
           <input
             name="consulta"
@@ -77,22 +77,22 @@ const excluir = (id) => {
           <table id="tabela" class="table table-striped table-bordered table-sm">
             <thead>
               <tr class="table-primary">
-                <th scope="col" class="text-end pe-3 col-2">Id</th>
-                <th scope="col" class="text-start ps-3 col-2">Descrição</th>
+                <th scope="col" class="text-end col-2">Id</th>
+                <th scope="col" class="text-start col-2">Descrição</th>
                 <th scope="col" class="text-center col-2">Ativos</th>
-                <th scope="col" class="text-end pe-3 col-2">Ordem de exibicao</th>
+                <th scope="col" class="text-end col-2">Ordem de exibicao</th>
                 <th scope="col" class="text-center col-2">Data de alteração</th>
                 <th scope="col" class="text-center col-2">Opções</th>
               </tr>
             </thead>
             <tbody>
               <tr scope="row" v-for="(item, idx) in controle.dados" :key="idx">
-                <td class="text-end pe-4">{{ item.laboratorioId }}</td>
-                <td class="text-start ps-4">{{ item.Descricao }}</td>
+                <td class="text-end">{{ item.laboratorioId }}</td>
+                <td class="text-start">{{ item.Descricao }}</td>
                 <td class="text-center">
                   {{ item.ativo ? "Ativo" : "Inativo" }}
                 </td>
-                <td class="text-end pe-3">{{ item.OrdemExibicao }}</td>
+                <td class="text-end">{{ item.OrdemExibicao }}</td>
                 <td class="text-center">{{ item.DataAlteracao }}</td>
                 <td class="text-center">
                   <a class="btn btn-danger btn-sm me-1" @click="excluir(item.id)"><i class="fas fa-trash"></i></a>

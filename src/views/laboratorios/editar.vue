@@ -13,9 +13,7 @@ var controle = reactive({
 });
 
 const route = useRoute();
-watch(
-  () => route.params.id,
-  (novoId) => {
+watch(  () => route.params.id,  (novoId) => {
     axios.get(`http://localhost:3000/info/${novoId}`);
   }
 );
