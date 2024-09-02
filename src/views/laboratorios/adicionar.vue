@@ -69,6 +69,7 @@ const confirmar = () => {
           <div class="row">
             <div class="col-md-6 col-6">
               <button @click="confirmar" value="submit" class="btn btn btn-primary btn-sm">Confirmar</button>
+              
             </div>
 
             <div class="col-md-6 col-6">
