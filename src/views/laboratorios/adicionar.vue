@@ -1,6 +1,11 @@
 <script setup>
 import axios from "axios";
 import {onMounted, reactive, ref} from "vue";
+import {useRouter} from "vue-router";
+
+
+const router = useRouter();
+
 
 var controle = reactive({
   laboratorioId: "",
@@ -12,17 +17,21 @@ var controle = reactive({
 
 var txtLaborId = ref();
 
-onMounted(()=>{
+onMounted(() => {
   txtLaborId.value?.focus();
-})
+});
 
 const confirmar = () => {
-
+  
   controle.DataAlteracao = new Date();
 
+  
   axios.post("http://localhost:3000/info", controle);
   // .then((r) => console.log(r));
   console.log(controle);
+  
+  router.push("/index");
+  router.go(-1);
 };
 </script>
 
@@ -37,7 +46,12 @@ const confirmar = () => {
           <div class="row">
             <div class="col-md-3 mb-2">
               <label>Id</label>
-              <input v-model="controle.laboratorioId" type="number" min="1" class="form-control form-control-sm" ref="txtLaborId"/>
+              <input
+                v-model="controle.laboratorioId"
+                type="number"
+                min="1"
+                class="form-control form-control-sm"
+                ref="txtLaborId" />
             </div>
             <div class="col-md-6">
               <label>Descrição</label>
@@ -69,7 +83,6 @@ const confirmar = () => {
           <div class="row">
             <div class="col-md-6 col-6">
               <button @click="confirmar" value="submit" class="btn btn btn-primary btn-sm">Confirmar</button>
-              
             </div>
 
             <div class="col-md-6 col-6">
