@@ -105,12 +105,36 @@
       "id": "ec38"
     },
     {
-      "laboratorioId": 3,
-      "Descricao": "Sanfarma",
+      "id": "fe2a",
+      "laboratorioId": 123,
+      "Descricao": "teste",
+      "ativo": false,
+      "OrdemExibicao": 123,
+      "DataAlteracao": "03/09/2024"
+    },
+    {
+      "id": "64d7",
+      "laboratorioId": 4342454345,
+      "Descricao": null,
       "ativo": true,
-      "OrdemExibicao": 13,
-      "DataAlteracao": "21/02/2024",
-      "id": "64f9"
+      "OrdemExibicao": "",
+      "DataAlteracao": "03/09/2024"
+    },
+    {
+      "id": "7977",
+      "laboratorioId": 123123123,
+      "Descricao": null,
+      "ativo": true,
+      "OrdemExibicao": "",
+      "DataAlteracao": "03/09/2024"
+    },
+    {
+      "id": "a9e8",
+      "laboratorioId": 548214875,
+      "Descricao": null,
+      "ativo": true,
+      "OrdemExibicao": "",
+      "DataAlteracao": "03/09/2024"
     }
   ]
 }
