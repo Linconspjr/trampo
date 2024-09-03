@@ -23,15 +23,12 @@ onMounted(() => {
 
 const confirmar = () => {
   
-  controle.DataAlteracao = new Date();
-
+  controle.DataAlteracao = (new Date()).toLocaleDateString('pt-BR') //estudar date em JS
   
   axios.post("http://localhost:3000/info", controle)
   .then((r) => router.push("/index"));
   console.log(controle);
-  
-  
-  
+
 };
 </script>
 

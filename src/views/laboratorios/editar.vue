@@ -3,20 +3,18 @@ import axios from "axios";
 import {reactive, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 
-
-
-
 const router = useRouter();
 
-
 var controle = reactive({
-  dados:{laboratorioId: "",
+  dados:{laboratorioId: "", //criou novo objeto
   Descricao: null,
   ativo: "",
   OrdemExibicao: "",
   DataAlteracao: null,
   id: "",}
 });
+
+
 
 const route = useRoute();
 watch(  () => route.params.id,  (novoId) => {console.log(novoId)
@@ -28,12 +26,13 @@ watch(  () => route.params.id,  (novoId) => {console.log(novoId)
     .catch((r) => {
       console.error(r);
     });
-},{deep:true,immediate:true});
+},{deep:true,immediate:true}); // estudar
+
 
 
 const editar = () => {
   axios.put(`http://localhost:3000/info/${controle.dados.id}`, controle.dados).then((r) => router.go(-1));
-  
+  //revisar anotações sobre axios API para melhor entendimento
   
 };
 
