@@ -31,7 +31,7 @@ const router = createRouter({
       name: "adicionar",
       component: Adicinar
     },{
-      path: "/editar",
+      path: "/editar/:id",
       name: "editar",
       component: Editar
     }

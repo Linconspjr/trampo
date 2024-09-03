@@ -26,12 +26,12 @@ const confirmar = () => {
   controle.DataAlteracao = new Date();
 
   
-  axios.post("http://localhost:3000/info", controle);
-  // .then((r) => console.log(r));
+  axios.post("http://localhost:3000/info", controle)
+  .then((r) => router.push("/index"));
   console.log(controle);
   
-  router.push("/index");
-  router.go(-1);
+  
+  
 };
 </script>
 

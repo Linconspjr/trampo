@@ -96,7 +96,7 @@ const excluir = (id) => {
                 <td class="text-center">{{ item.DataAlteracao }}</td>
                 <td class="text-center">
                   <a class="btn btn-danger btn-sm me-1" @click="excluir(item.id)"><i class="fas fa-trash"></i></a>
-                  <RouterLink class="btn btn-primary btn-sm" to="/editar">
+                  <RouterLink class="btn btn-primary btn-sm" :to="`/editar/${item.id}`">
                     <i class="fas fa-pen"></i>
                   </RouterLink>
                 </td>

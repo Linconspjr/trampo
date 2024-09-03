@@ -1,7 +1,7 @@
 {
   "info": [
     {
-      "laboratorioId": 121,
+      "laboratorioId": "121",
       "Descricao": "Legrand",
       "ativo": true,
       "OrdemExibicao": 1,
@@ -147,42 +147,18 @@
     {
       "id": "846a",
       "laboratorioId": 111,
-      "Descricao": "teste",
+      "Descricao": "é doido",
       "ativo": false,
-      "OrdemExibicao": 111,
+      "OrdemExibicao": "1111111111",
       "DataAlteracao": null
     },
     {
-      "id": "101f",
-      "laboratorioId": 111,
-      "Descricao": "teste",
+      "id": "d297",
+      "laboratorioId": 999,
+      "Descricao": "Teste 2",
       "ativo": false,
-      "OrdemExibicao": 111,
-      "DataAlteracao": null
-    },
-    {
-      "id": "a450",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "2024-09-02T14:13:33.975Z"
-    },
-    {
-      "id": "52f9",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "2024-09-02T14:13:52.239Z"
-    },
-    {
-      "id": "c77e",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "2024-09-02T14:21:35.602Z"
+      "OrdemExibicao": 0,
+      "DataAlteracao": "2024-09-02T19:36:48.295Z"
     }
   ]
 }
