@@ -5,8 +5,8 @@ import {useRouter} from "vue-router";
 
 const router = useRouter();
 
-const pimba = () => {
-  document.querySelector(`#txt_consulta`)?.focus();
+var pimba = () => {
+  document.querySelector("#txt_consulta, #txt_exibi")?.focus(); //estudar mais tarde
   console.log(document);
 };
 
@@ -27,7 +27,7 @@ onMounted(() => {
 const confirmar = () => {
   controle.DataAlteracao = new Date().toLocaleDateString("pt-BR"); //estudar date em JS
 
-  axios.post("http://localhost:3000/info", controle).then((r) => router.push("/index"));
+  axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
   console.log(controle);
 };
 </script>
@@ -38,20 +38,22 @@ const confirmar = () => {
       <div class="col-md-9 col-12">
         <div class="card">
           <div class="card-header">
-            <h5 class="card-title">Adicionar Laboratorios</h5>
+            <div class="row">
+            <div class="col-md-6">
+              <h5 class="card-title">Laboratorios - Adicionar</h5>
+            </div>
+            <div class="col-md-6">
+              <RouterLink class="float-end" :to="'/laboratorios'"><i class="fa fa-times"></i></RouterLink>
+            </div>
           </div>
+        </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md-3 mb-2">
                 <label>Id</label>
                 <input
                   v-model="controle.laboratorioId"
-                  @keydown.enter="
-                    () => {
-                      // document.querySelector(`#txt_consulta`)?.focus()
-                      console.log(document);
-                    }
-                  "
+                  @keydown.enter="pimba"
                   type="number"
                   min="1"
                   class="form-control form-control-sm"
@@ -63,7 +65,7 @@ const confirmar = () => {
                   name="consulta"
                   id="txt_consulta"
                   v-model="controle.Descricao"
-                  @keydown.13="pular2(controle.OrdemExibicao)"
+                  @keydown.13="pimba"
                   placeholder="Nome ou código"
                   type="text"
                   maxlength="50"
@@ -75,7 +77,8 @@ const confirmar = () => {
 
                 <input
                   v-model="controle.OrdemExibicao"
-                  @keydown.13="pular3(controle.Descricao)"
+                  @keydown.13="pimba"
+                  id="txt_exibi"
                   type="number"
                   min="1"
                   class="form-control form-control-sm" />
@@ -99,7 +102,7 @@ const confirmar = () => {
               </div>
 
               <div class="col-md-6 col-6">
-                <RouterLink class="btn btn-sm btn-secondary float-end" to="/index"> Fechar </RouterLink>
+                <RouterLink class="btn btn-sm btn-secondary float-end" to="/laboratorios"> Fechar </RouterLink>
               </div>
             </div>
           </div>

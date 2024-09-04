@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import IndexView from "@/views/laboratorios/index.vue";
-import Adicinar from "@/views/laboratorios/adicionar.vue";
-import Editar from "@/views/laboratorios/editar.vue";
+import LaborIndex from "@/views/laboratorios/index.vue";
+import LaborAdicionar from "@/views/laboratorios/adicionar.vue";
+import LaborAlterar from "@/views/laboratorios/editar.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,18 +22,18 @@ const router = createRouter({
     },
 
     {
-      path: "/index",
+      path: "/laboratorios",
       name: "Laboratorios",
-      component: IndexView,
+      component: LaborIndex,
     },
     {
-      path: "/adicionar",
+      path: "/laboratorios/adicionar",
       name: "adicionar",
-      component: Adicinar
+      component: LaborAdicionar
     },{
-      path: "/editar/:id",
-      name: "editar",
-      component: Editar
+      path: "/laboratorios/alterar/:id",
+      name: "alterar",
+      component: LaborAlterar
     }
   ],
 });

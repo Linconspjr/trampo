@@ -67,7 +67,7 @@
     {
       "laboratorioId": 172,
       "Descricao": "Avvio",
-      "ativo": true,
+      "ativo": false,
       "OrdemExibicao": 8,
       "DataAlteracao": "21/05/2024",
       "id": "513b"
@@ -105,36 +105,12 @@
       "id": "ec38"
     },
     {
-      "id": "fe2a",
-      "laboratorioId": 123,
+      "id": "ccb2",
+      "laboratorioId": 1233,
       "Descricao": "teste",
-      "ativo": false,
+      "ativo": true,
       "OrdemExibicao": 123,
-      "DataAlteracao": "03/09/2024"
-    },
-    {
-      "id": "64d7",
-      "laboratorioId": 4342454345,
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "03/09/2024"
-    },
-    {
-      "id": "7977",
-      "laboratorioId": 123123123,
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "03/09/2024"
-    },
-    {
-      "id": "a9e8",
-      "laboratorioId": 548214875,
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "03/09/2024"
+      "DataAlteracao": "04/09/2024"
     }
   ]
 }

@@ -1,11 +1,17 @@
 <script setup>
 import axios from "axios";
-import {onMounted, reactive, watch} from "vue";
+import {onMounted, reactive, watch, ref} from "vue";
 import {RouterLink} from "vue-router";
 
 var controle = reactive({pesquisa: "", dados: [], ativos: null});
 
+
+var txt_consulta = ref();
+
+
+
 onMounted(() => {
+  txt_consulta.value?.focus();
   buscar();
 });
 
@@ -41,7 +47,14 @@ const excluir = (id) => {
 <template>
   <div class="card">
     <div class="card-header">
-      <h5 class="card-title">Laboratorios</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="card-title">Laboratorios</h5>
+        </div>
+        <div class="col-md-6">
+          <RouterLink class="float-end" :to="'/'"><i class="fa fa-times"></i></RouterLink>
+        </div>
+      </div>
     </div>
     <div class="card-body">
       <div class="row align-items-end">
@@ -53,13 +66,15 @@ const excluir = (id) => {
             placeholder="Nome ou código"
             v-model="controle.pesquisa"
             type="text"
-            class="form-control form-control-sm" />
+            class="form-control form-control-sm" 
+            ref="txt_consulta"/>
+            
         </div>
 
-        <div class="col-md-3 ">
+        <div class="col-md-3">
           <label>Status</label>
 
-          <select v-model="controle.ativos" class="form-select form-select-sm " aria-label="Default select example">
+          <select v-model="controle.ativos" class="form-select form-select-sm" aria-label="Default select example">
             <option :value="null">- Todos -</option>
             <option :value="true">Ativos</option>
             <option :value="false">Inativos</option>
@@ -68,7 +83,7 @@ const excluir = (id) => {
 
         <div class="col-md-6">
           <button type="button" class="btn btn btn-primary btn-sm">
-            <RouterLink class="nav-link active" to="/adicionar">Adicionar</RouterLink>
+            <RouterLink class="nav-link active" to="/laboratorios/adicionar">Adicionar</RouterLink>
           </button>
         </div>
       </div>
@@ -96,7 +111,7 @@ const excluir = (id) => {
                 <td class="text-center">{{ item.DataAlteracao }}</td>
                 <td class="text-center">
                   <a class="btn btn-danger btn-sm me-1" @click="excluir(item.id)"><i class="fas fa-trash"></i></a>
-                  <RouterLink class="btn btn-primary btn-sm" :to="`/editar/${item.id}`">
+                  <RouterLink class="btn btn-primary btn-sm" :to="`/laboratorios/alterar/${item.id}`">
                     <i class="fas fa-pen"></i>
                   </RouterLink>
                 </td>

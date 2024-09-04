@@ -16,11 +16,11 @@ import { RouterLink, RouterView } from "vue-router";
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        CONSULTA
+        Cadastros
 
       </button>
       <ul class="dropdown-menu dropdown-menu-dark">
-        <RouterLink class="dropdown-item" to="/index">laboratorios</RouterLink>
+        <RouterLink class="dropdown-item" to="/laboratorios">Laboratórios</RouterLink>
        
       </ul>
     </div>
