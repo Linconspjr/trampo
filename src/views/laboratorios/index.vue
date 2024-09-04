@@ -49,7 +49,7 @@ const excluir = (id) => {
     <div class="card-header">
       <div class="row">
         <div class="col-md-6">
-          <h5 class="card-title">Laboratorios</h5>
+          <h4 class="card-title m-1">Laboratorios</h4>
         </div>
         <div class="col-md-6">
           <RouterLink class="float-end" :to="'/'"><i class="fa fa-times"></i></RouterLink>

@@ -5,13 +5,13 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <nav
-    class="navbar navbar-dark bg-secondary navbar-expand-lg navbar relative-top"
+  <nav style="background-color: rgb(50, 50,50 );"
+    class="navbar navbar-dark bg-color navbar-expand-lg navbar relative-top"
   >
     
     <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
+      <button 
+        class="btn btn-secondary dropdown-toggle ms-3"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"

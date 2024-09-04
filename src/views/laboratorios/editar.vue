@@ -38,6 +38,9 @@ const editar = () => {
   axios.put(`http://localhost:3000/info/${controle.dados.id}`, controle.dados).then((r) => router.go(-1));
   //revisar anotações sobre axios API para melhor entendimento
 };
+
+
+
 </script>
 <template>
   <div class="row justify-content-center">
@@ -56,18 +59,19 @@ const editar = () => {
 
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4 mb-2">
+            <div class="col-md-3 mb-2">
               <label>LaboratorioId</label>
               <input
                 autofocus
                 name="consulta"
                 id="txt_consulta"
+                @keydown="trataTecla"
                 v-model="controle.dados.laboratorioId"
                 placeholder="Nome ou código"
                 type="text"
                 class="form-control" />
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label>Descrição</label>
               <input
                 name="consulta"
@@ -75,9 +79,11 @@ const editar = () => {
                 v-model="controle.dados.Descricao"
                 placeholder="Nome ou código"
                 type="text"
-                class="form-control" />
+                class="form-control" 
+                @keydown="trataTecla"
+                />
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <label>Ordem de exibição</label>
 
               <input
@@ -88,14 +94,14 @@ const editar = () => {
                 type="text"
                 class="form-control" />
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <label>Status</label>
               <select class="form-select" v-model="controle.dados.ativo" aria-label="Default select example">
                 <option :value="true">Ativos</option>
                 <option :value="false">Inativos</option>
               </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <label>Data de Alteração</label>
 
               <input
@@ -111,10 +117,10 @@ const editar = () => {
         <div class="card-footer">
           <div class="row">
             <div class="col-md-6 col-6">
-              <button @click="editar()" value="submit" class="btn btn-success btn-sm">Confirmar</button>
+              <button @click="editar()" value="submit" class="btn btn-primary btn-sm">Confirmar</button>
             </div>
             <div class="col-md-6 col-6">
-              <RouterLink class="btn btn-sm btn-secondary float-end" to="/laboratorios">Voltar </RouterLink>
+              <RouterLink class="btn btn-sm btn-secondary float-end" to="/laboratorios">Fechar </RouterLink>
             </div>
           </div>
         </div>
