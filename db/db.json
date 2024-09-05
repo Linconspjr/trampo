@@ -108,40 +108,8 @@
       "id": "0cae",
       "laboratorioId": 101010001,
       "Descricao": "pepino",
-      "ativo": true,
+      "ativo": false,
       "OrdemExibicao": 0,
-      "DataAlteracao": "04/09/2024"
-    },
-    {
-      "id": "2801",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "04/09/2024"
-    },
-    {
-      "id": "8953",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "04/09/2024"
-    },
-    {
-      "id": "45ac",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
-      "DataAlteracao": "04/09/2024"
-    },
-    {
-      "id": "cbea",
-      "laboratorioId": "",
-      "Descricao": null,
-      "ativo": true,
-      "OrdemExibicao": "",
       "DataAlteracao": "04/09/2024"
     }
   ]

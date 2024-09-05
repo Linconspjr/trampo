@@ -5,11 +5,6 @@ import {useRouter} from "vue-router";
 
 const router = useRouter();
 
-var pimba = () => {
-  document.querySelector("#txt_consulta, #txt_exibi")?.focus(); //estudar mais tarde
-  console.log(document);
-};
-
 var controle = reactive({
   laboratorioId: "",
   Descricao: null,
@@ -30,6 +25,38 @@ const confirmar = () => {
   axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
   console.log(controle);
 };
+
+const trataTecla = (e = KeyboardEvent) => {
+  if (e.key == "Enter" || e.keyCode == 27) {
+    const inputs = Array.from(
+      e.target.ownerDocument.querySelectorAll(
+        "input:not([disabled]):not([readonly]),input:not(.form-control:disabled), select:not([disabled]):not([readonly]),button, #btnAvancar"
+      )
+    );
+    console.log(e);
+    console.log(inputs);
+    const index = inputs.indexOf(e.target);
+
+    if (e.keyCode == 13) {
+      if (index < inputs.length - 1) {
+        var el = inputs[index + 1];
+        el.focus();
+        if (el.tagName == "INPUT") el.select();
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    } else if (e.keyCode == 27) {
+      if (index > 0) {
+        var el2 = inputs[index - 1];
+
+        el2.focus();
+        el2.select();
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }
+  }
+};
 </script>
 
 <template>
@@ -39,21 +66,21 @@ const confirmar = () => {
         <div class="card">
           <div class="card-header">
             <div class="row">
-            <div class="col-md-6">
-              <h5 class="card-title">Laboratorios - Adicionar</h5>
-            </div>
-            <div class="col-md-6">
-              <RouterLink class="float-end" :to="'/laboratorios'"><i class="fa fa-times"></i></RouterLink>
+              <div class="col-md-6">
+                <h5 class="card-title">Laboratorios - Adicionar</h5>
+              </div>
+              <div class="col-md-6">
+                <RouterLink class="float-end" :to="'/laboratorios'"><i class="fa fa-times"></i></RouterLink>
+              </div>
             </div>
           </div>
-        </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md-3 mb-2">
                 <label>Id</label>
                 <input
                   v-model="controle.laboratorioId"
-                  @keydown.enter="pimba"
+                  @keydown.enter.esc="trataTecla"
                   type="number"
                   min="1"
                   class="form-control form-control-sm"
@@ -65,7 +92,7 @@ const confirmar = () => {
                   name="consulta"
                   id="txt_consulta"
                   v-model="controle.Descricao"
-                  @keydown.13="pimba"
+                  @keydown.enter.esc="trataTecla"
                   placeholder="Nome ou código"
                   type="text"
                   maxlength="50"
@@ -77,7 +104,7 @@ const confirmar = () => {
 
                 <input
                   v-model="controle.OrdemExibicao"
-                  @keydown.13="pimba"
+                  @keydown.enter.esc="trataTecla"
                   id="txt_exibi"
                   type="number"
                   min="1"
@@ -85,10 +112,7 @@ const confirmar = () => {
               </div>
               <div class="col-md-3">
                 <label>Status</label>
-                <select
-                  class="form-select form-select-sm"
-                  v-model="controle.ativo"
-                  @keydown.13="pular4(controle.laboratorioId)">
+                <select class="form-select form-select-sm" id="Doido" @keydown.enter.esc="trataTecla">
                   <option :value="true">Ativo</option>
                   <option :value="false">Inativo</option>
                 </select>
@@ -98,7 +122,13 @@ const confirmar = () => {
           <div class="card-footer">
             <div class="row">
               <div class="col-md-6 col-6">
-                <button @click="confirmar" value="submit" class="btn btn btn-primary btn-sm">Confirmar</button>
+                <button
+                  @click="confirmar"
+                  value="submit"
+                  @keydown.enter.esc="trataTecla"
+                  class="btn btn btn-primary btn-sm">
+                  Confirmar
+                </button>
               </div>
 
               <div class="col-md-6 col-6">
