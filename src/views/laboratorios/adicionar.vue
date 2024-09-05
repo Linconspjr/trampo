@@ -3,6 +3,17 @@ import axios from "axios";
 import {onMounted, reactive, ref} from "vue";
 import {useRouter} from "vue-router";
 
+
+function getRandomInt(min, max) {
+  min = Math.ceil(10);
+  max = Math.floor(400);
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+
+
+
 const router = useRouter();
 
 var controle = reactive({
@@ -13,14 +24,15 @@ var controle = reactive({
   DataAlteracao: null,
 });
 
-var txtLaborId = ref();
+var descricao = ref();
 
 onMounted(() => {
-  txtLaborId.value?.focus();
+  descricao.value?.focus();
 });
 
 const confirmar = () => {
-  controle.DataAlteracao = new Date().toLocaleDateString("pt-BR"); //estudar date em JS
+  controle.DataAlteracao = new Date().toLocaleDateString("pt-BR");
+  controle.laboratorioId = getRandomInt()
 
   axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
   console.log(controle);
@@ -76,7 +88,7 @@ const trataTecla = (e = KeyboardEvent) => {
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-3 mb-2">
+              <!-- <div class="col-md-3 mb-2">
                 <label>Id</label>
                 <input
                   v-model="controle.laboratorioId"
@@ -85,7 +97,7 @@ const trataTecla = (e = KeyboardEvent) => {
                   min="1"
                   class="form-control form-control-sm"
                   ref="txtLaborId" />
-              </div>
+              </div> -->
               <div class="col-md-6">
                 <label>Descrição</label>
                 <input
@@ -96,6 +108,7 @@ const trataTecla = (e = KeyboardEvent) => {
                   placeholder="Nome ou código"
                   type="text"
                   maxlength="50"
+                  ref="descricao"
                   required
                   class="form-control form-control-sm" />
               </div>

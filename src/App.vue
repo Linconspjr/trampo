@@ -13,6 +13,7 @@ import { RouterLink, RouterView } from "vue-router";
       <button 
         class="btn btn-secondary dropdown-toggle ms-3"
         type="button"
+        
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >

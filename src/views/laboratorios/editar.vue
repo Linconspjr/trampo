@@ -1,7 +1,11 @@
 <script setup>
 import axios from "axios";
-import {reactive, watch} from "vue";
+import {reactive, watch, ref, onMounted} from "vue";
 import {useRoute, useRouter} from "vue-router";
+var descricao = ref()
+onMounted(() => {
+  descricao.value?.focus();
+});
 
 const router = useRouter();
 
@@ -91,25 +95,28 @@ const trataTecla = (e = KeyboardEvent) => {
             <div class="col-md-3 mb-2">
               <label>LaboratorioId</label>
               <input
-                autofocus
                 name="consulta"
                 id="txt_consulta"
                 @keydown.enter.esc="trataTecla"
                 v-model="controle.dados.laboratorioId"
                 placeholder="Nome ou código"
                 type="text"
+                :disabled="true"
                 class="form-control" />
             </div>
             <div class="col-md-6">
               <label>Descrição</label>
               <input
-                name="consulta"
-                id="txt_consulta"
-                v-model="controle.dados.Descricao"
-                placeholder="Nome ou código"
-                type="text"
-                class="form-control"
-                @keydown.enter.esc="trataTecla" />
+              name="consulta"
+              id="txt_consulta"
+              v-model="controle.dados.Descricao"
+              placeholder="Nome ou código"
+              type="text"
+              ref="descricao"
+              class="form-control"
+              @keydown.enter.esc="trataTecla"
+               />
+             
             </div>
             <div class="col-md-3">
               <label>Ordem de exibição</label>

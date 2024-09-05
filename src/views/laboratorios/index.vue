@@ -65,7 +65,7 @@ const excluir = (id) => {
             id="txt_consulta"
             placeholder="Nome ou código"
             v-model="controle.pesquisa"
-            type="text"
+            type="search"
             class="form-control form-control-sm" 
             ref="txt_consulta"/>
             
