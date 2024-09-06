@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <nav style="background-color: rgb(50, 50,50 );"
+  <nav style="background-color: rgb(20, 35,60 );"
     class="navbar navbar-dark bg-color navbar-expand-lg navbar relative-top"
   >
     
