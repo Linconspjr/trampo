@@ -1,9 +1,12 @@
 <script setup>
-import axios from "axios";
 import {onMounted, reactive, watch, ref} from "vue";
 import {RouterLink} from "vue-router";
+import {pesquisar} from "../../services/distrib/LaboratoriosService";
 
-var controle = reactive({pesquisa: "", dados: [], ativos: null});
+var controle = reactive({
+pesquisa: "", 
+ativos: null, 
+dados: []});
 
 
 var txt_consulta = ref();
@@ -15,18 +18,25 @@ onMounted(() => {
   buscar();
 });
 
+/*
 watch([() => controle.pesquisa, () => controle.ativos], async ([novo, ativos]) => {
   await buscar();
 
-  pesquisa(novo, ativos);
+  filtrar(novo, ativos);
 });
+*/
 
 async function buscar() {
-  var r = await axios.get("http://localhost:3000/info");
-  controle.dados = r.data;
+  console.log("pesquisando...");
+
+  pesquisar(controle.pesquisa, controle.ativos)
+  .then(r=> {
+    controle.dados = r.data;
+  }) 
+  
 }
 
-function pesquisa(novo, ativos) {
+function filtrar(novo, ativos) {
   controle.dados = controle.dados.filter(
     (item) =>
       (item.ativo == ativos || ativos == null) &&
@@ -67,14 +77,15 @@ const excluir = (id) => {
             v-model="controle.pesquisa"
             type="search"
             class="form-control form-control-sm" 
-            ref="txt_consulta"/>
+            ref="txt_consulta"
+            @keyup="buscar()"/>
             
         </div>
 
         <div class="col-md-3">
           <label>Status</label>
 
-          <select v-model="controle.ativos" class="form-select form-select-sm" aria-label="Default select example">
+          <select v-model="controle.ativos" class="form-select form-select-sm" aria-label="Default select example" @change="buscar()">
             <option :value="null">- Todos -</option>
             <option :value="true">Ativos</option>
             <option :value="false">Inativos</option>

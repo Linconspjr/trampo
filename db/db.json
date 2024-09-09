@@ -1,5 +1,5 @@
 {
-  "info": [
+  "laboratorios": [
     {
       "laboratorioId": "121",
       "Descricao": "Legrand",
@@ -129,12 +129,12 @@
       "DataAlteracao": "10/10/10101"
     },
     {
-      "id": "fc1d",
-      "laboratorioId": 320,
-      "Descricao": "Labornatus",
+      "id": "e5b2",
+      "laboratorioId": 94,
+      "Descricao": "31233232",
       "ativo": true,
-      "OrdemExibicao": 15,
-      "DataAlteracao": "05/09/2024"
+      "OrdemExibicao": 23232132,
+      "DataAlteracao": "09/09/2024"
     }
   ]
 }

@@ -34,7 +34,8 @@ onMounted(() => {
 const confirmar = () => {
   controle.DataAlteracao = new Date().toLocaleDateString("pt-BR");
   controle.laboratorioId = getRandomInt()
-  
+  axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
+  console.log(controle);
 };
 
 const trataTecla = (e = KeyboardEvent) => {
@@ -42,6 +43,7 @@ const trataTecla = (e = KeyboardEvent) => {
     const inputs = Array.from(
       e.target.ownerDocument.querySelectorAll(
         "input:not([disabled]):not([readonly]),input:not(.form-control:disabled), select:not([disabled]):not([readonly]),button, #btnAvancar"
+
       )
     );
     console.log(e);

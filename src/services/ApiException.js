@@ -1,37 +1,38 @@
 export default class ApiException extends Error {
   
 
-  constructor() {
+  constructor() { //como q arruma isso mano
     super();
 
     var message = "";
     
-    if (error.response != undefined && error.response != null && error.response.data != undefined) {
-      if (error.response.data.message != undefined) message = error.response?.data?.message;
+    if (Error.response != undefined && Error.response != null && Error.response.data != undefined) {
+      if (Error.response.data.message != undefined) message = Error.response?.data?.message;
       else {
-        if (error.response.data.length > 0) {
+        if (Error.response.data.length > 0) {
 
-          if (Array.isArray(error.response?.data)) {
-            error.response?.data.forEach(element => {
+          if (Array.isArray(Error.response?.data)) {
+            Error.response?.data.forEach(element => {
               message += `Campo ${element.campo} : ${element.mensagem}, `;
             });
           }
           else
-            message = error.response?.data;
+            message = Error.response?.data;
+          
 
         }
       }
     } else {
-      if (error.message != undefined && error.message != null) message = error.message;
+      if (Error.message != undefined && Error.message != null) message = Error.message;
     }
 
-    if (!message && error.message == "Network Error") message = "Erro de rede/internet!";
+    if (!message && Error.message == "Network Error") message = "Erro de rede/internet!";
 
-    if (!message && error?.response?.status == "404") message = "Não encontrado";
+    if (!message && Error?.response?.status == "404") message = "Não encontrado";
 
-    if ((!message && error?.response?.status == "401") || (!message && error?.response?.status == "405"))
-      if (error?.response?.data != '')
-        message = error?.response?.data;
+    if ((!message && Error?.response?.status == "401") || (!message && Error?.response?.status == "405"))
+      if (Error?.response?.data != '')
+        message = Error?.response?.data;
       else
         message = "Sem permissão!";
 

@@ -1,14 +1,31 @@
 import axios from "axios";
 import ApiException from "@/services/ApiException";
 
-const urlBase = "https://apidistrib.pontualmedicamentos.com.br:7201";
+// const urlBase = "https://apidistrib.pontualmedicamentos.com.br:7201";
+
+const urlBase = "http://localhost:3000";
 
 const urls = {
-  obter: `${urlBase}/Estoque/Laboratorios`,
-  adicionar: `${urlBase}/Estoque/Laboratorios`,
-  alterar: `${urlBase}/Estoque/Laboratorios`,
-  excluir: `${urlBase}/Estoque/Laboratorios`,
+  obter: `${urlBase}/laboratorios`,
+  adicionar: `${urlBase}/laboratorios`,
+  alterar: `${urlBase}/laboratorios`,
+  excluir: `${urlBase}/laboratorios`,
 };
+
+ export const itens = {
+    laboratorioId: Number | '',
+    Descricao: String | null,
+    ativo: String | null,
+    OrdemExibicao: Number | null, 
+    DataAlteracao: Date | null,
+    id: Number | null
+}
+
+export const retorna = {
+  dados: itens
+}
+  
+
 
 function getToken() {
   var x = localStorage.getItem("user");
@@ -24,23 +41,31 @@ function getToken() {
   } else return "";
 }
 
-export const pesquisar = (params) => {
-  return new Promise((resolve, reject) => {
+export const pesquisar = (descricao, ativo) => {
+  return new Promise((retorna) => {
     axios.defaults.headers.common.Authorization = getToken();
 
+    var params = {};
+
+    if (descricao != undefined && descricao != null && descricao != "")
+      params.descricao_like = descricao;
+
+    if (ativo != undefined && ativo != null)
+      params.ativo = ativo;
+
     axios
-      .get(urls.obter, {params})
+      .get(urls.obter, { params})
       .then((r) => {
-        return resolve(r.data);
+        return retorna(r.data);
       })
       .catch((error) => {
-        return reject(new ApiException(error));
+        return (new ApiException(error));
       });
   });
 };
 
 export const adicionar = (model) => {
-  return new Promise((resolve, reject) => {
+  return new Promise(( reject) => {
     axios.defaults.headers.common.Authorization = getToken();
     axios
       .post(urls.adicionar, model)
@@ -54,7 +79,7 @@ export const adicionar = (model) => {
 };
 
 export const alterar = async (model) => {
-  return new Promise((resolve, reject) => {
+  return new Promise(( reject) => {
     axios.defaults.headers.common.Authorization = getToken();
 
     axios
@@ -69,7 +94,7 @@ export const alterar = async (model) => {
 };
 
 export const excluir = async (id) => {
-  return new Promise((resolve, reject) => {
+  return new Promise(( reject) => {
     axios.defaults.headers.common.Authorization = getToken();
 
     axios
