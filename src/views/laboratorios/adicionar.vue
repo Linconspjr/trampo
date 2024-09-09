@@ -1,7 +1,11 @@
 <script setup>
+import {pesquisar}  from "@/services/distrib/LaboratoriosService"
 import axios from "axios";
 import {onMounted, reactive, ref} from "vue";
 import {useRouter} from "vue-router";
+
+
+
 
 
 function getRandomInt(min, max) {
@@ -9,10 +13,6 @@ function getRandomInt(min, max) {
   max = Math.floor(400);
   return Math.floor(Math.random() * (max - min) + min);
 }
-
-
-
-
 
 const router = useRouter();
 
@@ -27,15 +27,14 @@ var controle = reactive({
 var descricao = ref();
 
 onMounted(() => {
+  
   descricao.value?.focus();
 });
 
 const confirmar = () => {
   controle.DataAlteracao = new Date().toLocaleDateString("pt-BR");
   controle.laboratorioId = getRandomInt()
-
-  axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
-  console.log(controle);
+  
 };
 
 const trataTecla = (e = KeyboardEvent) => {
