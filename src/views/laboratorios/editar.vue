@@ -2,6 +2,8 @@
 import axios from "axios";
 import {reactive, watch, ref, onMounted} from "vue";
 import {useRoute, useRouter} from "vue-router";
+import {pesquisar,pesquisarPorId, alterar}  from "@/services/distrib/LaboratoriosService"
+
 var descricao = ref()
 onMounted(() => {
   descricao.value?.focus();
@@ -24,22 +26,21 @@ const route = useRoute();
 watch(
   () => route.params.id,
   (novoId) => {
-    console.log(novoId);
-    axios
-      .get(`http://localhost:3000/info/${novoId}`)
+    console.log( novoId);
+    pesquisarPorId({id: novoId})
       .then((r) => {
-        controle.dados = r.data;
+        controle.dados = r;
         console.log(r);
       })
-      .catch((r) => {
-        console.error(r);
+      .catch((error) => {
+        console.error(error);
       });
   },
   {deep: true, immediate: true}
 ); // estudar
 
 const editar = () => {
-  axios.put(`http://localhost:3000/info/${controle.dados.id}`, controle.dados).then((r) => router.go(-1));
+  alterar(controle.dados).then((r) => router.go(-1));
   //revisar anotações sobre axios API para melhor entendimento
 };
 

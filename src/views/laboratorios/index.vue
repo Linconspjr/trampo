@@ -1,56 +1,46 @@
 <script setup>
 import {onMounted, reactive, watch, ref} from "vue";
 import {RouterLink} from "vue-router";
-import {pesquisar} from "../../services/distrib/LaboratoriosService";
+import {pesquisar, excluir} from "../../services/distrib/LaboratoriosService";
 
 var controle = reactive({
-pesquisa: "", 
-ativos: null, 
-dados: []});
-
+  pesquisa: "",
+  ativos: null,
+  erro: "",
+  dados: [],
+});
 
 var txt_consulta = ref();
-
-
 
 onMounted(() => {
   txt_consulta.value?.focus();
   buscar();
 });
 
-/*
-watch([() => controle.pesquisa, () => controle.ativos], async ([novo, ativos]) => {
+watch([() => controle.pesquisa, () => controle.ativos], async () => {
   await buscar();
-
-  filtrar(novo, ativos);
+  // filtrar(novo, ativos);
 });
-*/
 
 async function buscar() {
   console.log("pesquisando...");
-
-  pesquisar(controle.pesquisa, controle.ativos)
-  .then(r=> {
-    controle.dados = r.data;
-  }) 
-  
+  pesquisar({Descricao: controle.pesquisa, ativo: controle.ativos, })
+    .then((r) => {
+      controle.dados = r;
+    })
+    .catch((erro) => {
+      controle.erro = erro;
+    });
 }
 
-function filtrar(novo, ativos) {
-  controle.dados = controle.dados.filter(
-    (item) =>
-      (item.ativo == ativos || ativos == null) &&
-      (item.laboratorioId == novo || item.Descricao.toLowerCase().includes(novo.toLowerCase()))
-  );
-}
-
-const excluir = (id) => {
-  axios
-    .delete(`http://localhost:3000/info/${id}`)
+const deletar = (id) => {
+  excluir(id)
     .then((r) => {
       buscar();
     })
-    .catch((erro) => {});
+    .catch((erro) => {
+      controle.erro = erro;
+    });
 };
 </script>
 
@@ -76,16 +66,19 @@ const excluir = (id) => {
             placeholder="Nome ou código"
             v-model="controle.pesquisa"
             type="search"
-            class="form-control form-control-sm" 
+            class="form-control form-control-sm"
             ref="txt_consulta"
-            @keyup="buscar()"/>
-            
+            @keyup="buscar()" />
         </div>
 
         <div class="col-md-3">
           <label>Status</label>
 
-          <select v-model="controle.ativos" class="form-select form-select-sm" aria-label="Default select example" @change="buscar()">
+          <select
+            v-model="controle.ativos"
+            class="form-select form-select-sm"
+            aria-label="Default select example"
+            @change="buscar()">
             <option :value="null">- Todos -</option>
             <option :value="true">Ativos</option>
             <option :value="false">Inativos</option>
@@ -96,6 +89,11 @@ const excluir = (id) => {
           <button type="button" class="btn btn btn-primary btn-sm">
             <RouterLink class="nav-link active" to="/laboratorios/adicionar">Adicionar</RouterLink>
           </button>
+        </div>
+      </div>
+      <div class="row" v-if="controle.erro != ''">
+        <div class="col-md-12 text-danger fw-bold">
+          {{ controle.erro }}
         </div>
       </div>
       <div class="row">
@@ -121,7 +119,7 @@ const excluir = (id) => {
                 <td class="text-end">{{ item.OrdemExibicao }}</td>
                 <td class="text-center">{{ item.DataAlteracao }}</td>
                 <td class="text-center">
-                  <a class="btn btn-danger btn-sm me-1" @click="excluir(item.id)"><i class="fas fa-trash"></i></a>
+                  <a class="btn btn-danger btn-sm me-1" @click="deletar(item.id)"><i class="fas fa-trash"></i></a>
                   <RouterLink class="btn btn-primary btn-sm" :to="`/laboratorios/alterar/${item.id}`">
                     <i class="fas fa-pen"></i>
                   </RouterLink>

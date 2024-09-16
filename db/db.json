@@ -1,8 +1,8 @@
 {
   "laboratorios": [
     {
-      "laboratorioId": "121",
-      "Descricao": "Legrand",
+      "laboratorioId": 121,
+      "Descricao": "Legrand00000",
       "ativo": true,
       "OrdemExibicao": 1,
       "DataAlteracao": "02/11/2024",
@@ -10,7 +10,7 @@
     },
     {
       "laboratorioId": 122,
-      "Descricao": "Legrand GE",
+      "Descricao": "Legrand GE0000",
       "ativo": true,
       "OrdemExibicao": 2,
       "DataAlteracao": "07/12/2024",
@@ -121,20 +121,12 @@
       "DataAlteracao": "05/09/2024"
     },
     {
-      "id": "b139",
-      "laboratorioId": 304,
-      "Descricao": "Teste",
-      "ativo": false,
-      "OrdemExibicao": "14",
-      "DataAlteracao": "10/10/10101"
-    },
-    {
-      "id": "e5b2",
-      "laboratorioId": 94,
-      "Descricao": "31233232",
+      "id": "ae67",
+      "laboratorioId": 40,
+      "Descricao": "teste",
       "ativo": true,
-      "OrdemExibicao": 23232132,
-      "DataAlteracao": "09/09/2024"
+      "OrdemExibicao": 333,
+      "DataAlteracao": "16/09/2024"
     }
   ]
 }

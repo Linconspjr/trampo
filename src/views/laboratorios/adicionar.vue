@@ -1,6 +1,5 @@
 <script setup>
-import {pesquisar}  from "@/services/distrib/LaboratoriosService"
-import axios from "axios";
+import {adicionar}  from "@/services/distrib/LaboratoriosService"
 import {onMounted, reactive, ref} from "vue";
 import {useRouter} from "vue-router";
 
@@ -34,7 +33,7 @@ onMounted(() => {
 const confirmar = () => {
   controle.DataAlteracao = new Date().toLocaleDateString("pt-BR");
   controle.laboratorioId = getRandomInt()
-  axios.post("http://localhost:3000/info", controle).then((r) => router.push("/laboratorios"));
+  adicionar(controle).then((r) => router.push("/laboratorios"));
   console.log(controle);
 };
 
@@ -89,16 +88,6 @@ const trataTecla = (e = KeyboardEvent) => {
           </div>
           <div class="card-body">
             <div class="row">
-              <!-- <div class="col-md-3 mb-2">
-                <label>Id</label>
-                <input
-                  v-model="controle.laboratorioId"
-                  @keydown.enter.esc="trataTecla"
-                  type="number"
-                  min="1"
-                  class="form-control form-control-sm"
-                  ref="txtLaborId" />
-              </div> -->
               <div class="col-md-6">
                 <label>Descrição</label>
                 <input
