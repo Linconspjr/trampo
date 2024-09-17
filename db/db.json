@@ -2,7 +2,7 @@
   "laboratorios": [
     {
       "laboratorioId": 121,
-      "Descricao": "Legrand00000",
+      "Descricao": "Legrand",
       "ativo": true,
       "OrdemExibicao": 1,
       "DataAlteracao": "02/11/2024",
@@ -10,7 +10,7 @@
     },
     {
       "laboratorioId": 122,
-      "Descricao": "Legrand GE0000",
+      "Descricao": "Legrand GE",
       "ativo": true,
       "OrdemExibicao": 2,
       "DataAlteracao": "07/12/2024",

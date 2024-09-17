@@ -24,7 +24,7 @@ watch([() => controle.pesquisa, () => controle.ativos], async () => {
 
 async function buscar() {
   console.log("pesquisando...");
-  pesquisar({Descricao: controle.pesquisa, ativo: controle.ativos, })
+  pesquisar({Descricao: controle.pesquisa, ativo: controle.ativos})
     .then((r) => {
       controle.dados = r;
     })

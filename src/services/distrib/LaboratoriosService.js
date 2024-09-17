@@ -43,7 +43,7 @@ function getToken() {
  
 
 
-export const pesquisar = (params = {Descricao, ativo, id}) => {
+export const pesquisar = (params = {Descricao, ativo, laboratorioId}) => {
   return new Promise((resolve, reject) => {
 
 
